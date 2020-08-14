@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service
+  labels:
+    app: v3v5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: v3v5
+  template:
+    metadata:
+      labels:
+        app: v3v5
+    spec:
+      containers:
+      - name: v3v5
+        image: simple_node:minikube
+        ports:
+        - containerPort: 8080
